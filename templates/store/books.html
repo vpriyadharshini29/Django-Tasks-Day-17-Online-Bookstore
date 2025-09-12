@@ -1,0 +1,31 @@
+{% extends 'bookstore/base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Books</h2>
+<div class="row" id="books"></div>
+<script>
+async function fetchBooks(){
+  const res = await fetch('/api/books/');
+  const data = await res.json();
+  const container = document.getElementById('books');
+  container.innerHTML = '';
+  data.results.forEach(b=>{
+    const col = document.createElement('div');
+    col.className = 'col-md-4 mb-3';
+    col.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">${b.title}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${b.author?.name || ''}</h6>
+          <p class="card-text">${b.category?.name || ''}</p>
+          <p class="fw-bold">₹ ${b.price}</p>
+          <span class="badge bg-success">⭐ ${b.rating}</span>
+        </div>
+        <div class="card-footer text-muted">Published: ${b.published_date||'N/A'}</div>
+      </div>`;
+    container.appendChild(col);
+  });
+}
+fetchBooks();
+</script>
+{% endblock %}
