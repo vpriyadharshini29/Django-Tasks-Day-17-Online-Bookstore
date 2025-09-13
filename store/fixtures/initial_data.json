@@ -1,0 +1,58 @@
+[
+  {
+    "model": "store.author",
+    "pk": 1,
+    "fields": {
+      "name": "J.K. Rowling",
+      "bio": "Author of the Harry Potter series"
+    }
+  },
+  {
+    "model": "store.author",
+    "pk": 2,
+    "fields": {
+      "name": "George R.R. Martin",
+      "bio": "Author of A Song of Ice and Fire"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 1,
+    "fields": {
+      "name": "Fantasy"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 2,
+    "fields": {
+      "name": "Adventure"
+    }
+  },
+  {
+    "model": "store.book",
+    "pk": 1,
+    "fields": {
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "description": "First book in the Harry Potter series",
+      "author": 1,
+      "category": 1,
+      "price": "499.99",
+      "rating": 4.8,
+      "published_date": "1997-06-26"
+    }
+  },
+  {
+    "model": "store.book",
+    "pk": 2,
+    "fields": {
+      "title": "A Game of Thrones",
+      "description": "First book in the ASOIAF series",
+      "author": 2,
+      "category": 1,
+      "price": "599.99",
+      "rating": 4.7,
+      "published_date": "1996-08-06"
+    }
+  }
+]
